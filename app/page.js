@@ -101,9 +101,13 @@ export default function Generate() {
     return (
       <Container maxWidth="md">
         <Box sx={{ my: 4 }}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            Generate Flashcards
-          </Typography>
+          <Stack direction={'row'} display={'flex'}>
+            <img src="android-chrome-192x192.png" alt="Description of Image" height={'75'} width={'75'}/>
+            <Typography variant={'h4'} component="h1" color={'#339fff'} padding={2} gutterBottom>
+              Generate Flashcards            
+            </Typography>
+          </Stack>  
+          
           <TextField
             value={text}
             onChange={(e) => setText(e.target.value)}
