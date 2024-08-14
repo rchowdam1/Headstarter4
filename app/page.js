@@ -1,6 +1,6 @@
-'use client'
-import {Box, Stack, TextField, Button, Typography, Image} from '@mui/material'
-import {useState, useRef, useEffect} from 'react'
+import {Box, Stack, TextField, Button, Typography, Image, Grid} from '@mui/material'
+import {SignedIn, SignedOut, UserButton} from '@clerk/nextjs'
+import Head from 'next/head'
 
 export default function Home()
 {
