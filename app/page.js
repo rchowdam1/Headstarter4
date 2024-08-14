@@ -37,7 +37,7 @@ export default function Generate() {
     }
   }  
     // We'll implement the API call here
-  }
+  
 
   return (
     <Container maxWidth="md">
