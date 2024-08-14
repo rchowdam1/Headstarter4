@@ -17,6 +17,11 @@ You should return in the following JSON format:
 
 export async function POST(req)
 {
-    const genAI = new GoogleGenerativeAI("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    const genAI = new GoogleGenerativeAI("AIzaSyDDmBpDpjeB75JueoFr9uTSO85jqaojX4k");
     const genAiModel = genAI.getGenerativeModel({model: "gemini-1.5-flash", systemInstruction: systemPrompt})    
+    const data = await req.text()
+    const chat = genAiModel.startChat({history: [{role: 'system', parts: [{text: systemPrompt}]}]})
+    const message = await chat.sendMessage(data)
+    const flashcards = message.response.text()
+    return NextResponse.json(flashcards.flaschard)
 }
