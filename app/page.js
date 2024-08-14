@@ -12,7 +12,9 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  Grid
+  Grid,
+  Card,
+  CardContent
 } from '@mui/material'
 import { NextResponse } from 'next/server'
 
@@ -116,7 +118,7 @@ export default function Generate() {
               Generated Flashcards
             </Typography>
             <Grid container spacing={2}>
-              {flashcards.map((flashcard, index) => (
+              {[flashcards].map((flashcard, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
                   <Card>
                     <CardContent>
