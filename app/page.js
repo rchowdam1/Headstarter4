@@ -17,8 +17,7 @@ import {
   CardContent
 } from '@mui/material'
 import { NextResponse } from 'next/server'
-import { firestore } from '@/firebase'
-import { db } from '/firebase.js'
+import { db } from '@/firebase'
 import 
 {
   collection,
