@@ -11,7 +11,8 @@ import {
   DialogTitle,
   DialogContent,
   DialogContentText,
-  DialogActions
+  DialogActions,
+  Grid
 } from '@mui/material'
 import { NextResponse } from 'next/server'
 
@@ -66,6 +67,7 @@ export default function Generate() {
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
+        headers: {'Content-Type': 'application/json'},
         body: NextResponse.json(text),
       })
   
