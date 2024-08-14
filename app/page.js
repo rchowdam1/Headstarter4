@@ -17,6 +17,20 @@ import {
   CardContent
 } from '@mui/material'
 import { NextResponse } from 'next/server'
+import { firestore } from '@/firebase'
+import { db } from '/firebase.js'
+import 
+{
+  collection,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+  deleteDoc,
+  getDoc,
+  addDoc,
+} from 'firebase/firestore'
+
 
 export default function Generate() {
   const [text, setText] = useState('')
@@ -83,7 +97,7 @@ export default function Generate() {
       console.error('Error generating flashcards:', error)
       alert('An error occurred while generating flashcards. Please try again.')
     }
-  }  
+  }
     // We'll implement the API call here
     return (
       <Container maxWidth="md">
