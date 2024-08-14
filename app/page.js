@@ -1,5 +1,6 @@
 import {Box, Stack, TextField, Button, Typography, Image, Grid} from '@mui/material'
 import {SignedIn, SignedOut, UserButton} from '@clerk/nextjs'
+import getStripe from '@/utils/get-stripe'
 import Head from 'next/head'
 
 export default function Home()
@@ -11,6 +12,12 @@ export default function Home()
         })
         const checkoutSessionJson = await checkoutSession.json()
       
+        if(checkoutSession.statusCode === 500)
+        {
+          console.error(checkoutSession.message)
+          return
+        }
+
         const stripe = await getStripe()
         const {error} = await stripe.redirectToCheckout({
           sessionId: checkoutSessionJson.id,
