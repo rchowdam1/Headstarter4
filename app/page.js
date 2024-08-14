@@ -14,7 +14,8 @@ import {
   DialogActions,
   Grid,
   Card,
-  CardContent
+  CardContent,
+  Stack
 } from '@mui/material'
 import { NextResponse } from 'next/server'
 import { db } from '@/firebase'
@@ -103,7 +104,7 @@ export default function Generate() {
         <Box sx={{ my: 4 }}>
           <Stack direction={'row'} display={'flex'}>
             <img src="android-chrome-192x192.png" alt="Description of Image" height={'75'} width={'75'}/>
-            <Typography variant={'h4'} component="h1" color={'#339fff'} padding={2} gutterBottom>
+            <Typography variant={'h4'} component="h1" color={'#ff5555'} padding={2} gutterBottom>
               Generate Flashcards            
             </Typography>
           </Stack>  
