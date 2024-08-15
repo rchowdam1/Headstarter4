@@ -11,7 +11,7 @@ export default function Home()
           headers: { origin: 'http://localhost:3000' },
         })
         const checkoutSessionJson = await checkoutSession.json()
-      
+       
         if(checkoutSession.statusCode === 500)
         {
           console.error(checkoutSession.message)
