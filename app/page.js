@@ -1,43 +1,30 @@
-import {Box, Stack, TextField, Button, Typography, Image, Grid} from '@mui/material'
-import {SignedIn, SignedOut, UserButton} from '@clerk/nextjs'
+import Image from 'next/image'
 import getStripe from '@/utils/get-stripe'
-import Head from 'next/head'
+import { Typography } from '@mui/material'
+import { UserButton } from '@clerk/nextjs'
 
 export default function Home()
 {
-    const handleSubmit = async () => {
-        const checkoutSession = await fetch('/api/checkout_sessions', {
-          method: 'POST',
-          headers: { origin: 'http://localhost:3000' },
-        })
-        const checkoutSessionJson = await checkoutSession.json()
-       
-        if(checkoutSession.statusCode === 500)
-        {
-          console.error(checkoutSession.message)
-          return
-        }
+  return
+  (
+    <Container maxWidth="1g">
+      <Head>
+        <title>Flashcard Saas</title>
+        <meta name = "description" content = "Create flashcard from your text"/>
+      </Head>
 
-        const stripe = await getStripe()
-        const {error} = await stripe.redirectToCheckout({
-          sessionId: checkoutSessionJson.id,
-        })
-      
-        if (error) {
-          console.warn(error.message)
-        }
-      }
-    
-    return  <Box><Box sx={{my: 6}}>
-    <Typography variant="h4" component="h2" gutterBottom>Features</Typography>
-    <Grid container spacing={4}>
-        {/* Feature items */}
-    </Grid>
-    </Box>
-    <Box sx={{my: 6, textAlign: 'center'}}>
-    <Typography variant="h4" component="h2" gutterBottom>Pricing</Typography>
-    <Grid container spacing={4} justifyContent="center">
-      {/* Pricing plans */}
-    </Grid>
-    </Box></Box>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">Flashcard Saas</Typography>
+          <SignedOut>
+            <Button>Login</Button>
+            <Button>Sign Up</Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton/>
+          </SignedIn>
+        </Toolbar>
+      </AppBar>
+    </Container>
+  )
 }
