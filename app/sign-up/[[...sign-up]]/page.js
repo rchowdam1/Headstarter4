@@ -20,6 +20,11 @@ export default function SignUpPage() {
         Sign Up
       </Link>
     </Button>
+    <Button color="inherit">
+      <Link href="/" passHref>
+        Home
+      </Link>
+    </Button>
   </Toolbar>
 </AppBar>
 <Box

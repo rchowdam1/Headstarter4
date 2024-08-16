@@ -29,7 +29,12 @@ export default function Home()
       <Box sx={{textAlign: "center", my: 4}}>
         <Typography variant="h2">Welcome to flashcard SaaS</Typography>
         <Typography variant="h5"> {' '}The easiest way to make flashcards from your text</Typography>
-        <Button variant="contained" color="primary" sx={{mt: 2}}>Get Started</Button>
+        <SignedIn>
+          <Button variant="contained" color="primary" sx={{mt: 2}} href="/generate">Get Started</Button>
+        </SignedIn>
+        <SignedOut>
+          <Typography variant="contained" color="primary" sx={{mt: 2}}>Create An Account To Get Started!</Typography>
+        </SignedOut>
       </Box>
 
       <Box sx={{my:6}}>

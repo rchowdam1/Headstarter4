@@ -29,10 +29,12 @@ import
   deleteDoc,
   getDoc,
   addDoc,
+  writeBatch
 } from 'firebase/firestore'
-
+import { useUser } from '@clerk/nextjs'
 
 export default function Generate() {
+  const {isLoaded, isSignedIn, user} = useUser()
   const [text, setText] = useState('')
   const [flashcards, setFlashcards] = useState([])
   const [setName, setSetName] = useState('')
@@ -84,15 +86,16 @@ export default function Generate() {
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: NextResponse.json(text),
+        body: JSON.stringify(text),
       })
   
       if (!response.ok) {
         throw new Error('Failed to generate flashcards')
       }
   
-      const data = await response.json()
-      setFlashcards(data)
+      const newCards = await response.json()
+      console.log(newCards)
+      setFlashcards([...flashcards, ...newCards])
     } catch (error) {
       console.error('Error generating flashcards:', error)
       alert('An error occurred while generating flashcards. Please try again.')
@@ -107,6 +110,9 @@ export default function Generate() {
             <Typography variant={'h4'} component="h1" color={'#ff5555'} padding={2} gutterBottom>
               Generate Flashcards            
             </Typography>
+            <Button color="inherit" href="/">
+                Home
+            </Button>
           </Stack>  
           
           <TextField
@@ -136,7 +142,7 @@ export default function Generate() {
               Generated Flashcards
             </Typography>
             <Grid container spacing={2}>
-              {[flashcards].map((flashcard, index) => (
+              {flashcards.map((flashcard, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
                   <Card>
                     <CardContent>
