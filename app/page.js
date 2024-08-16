@@ -17,7 +17,7 @@ export default function Home()
         <Toolbar>
           <Typography variant="h6" style={{flexGrow: 1}}>Flashcard Saas</Typography>
           <SignedOut>
-            <Button color="inherit" href="/login">{' '}login</Button>
+            <Button color="inherit" href="/login">{' '}Login</Button>
             <Button color="inherit" href="/sign-up">{' '}Sign Up</Button>
           </SignedOut>
           <SignedIn>
