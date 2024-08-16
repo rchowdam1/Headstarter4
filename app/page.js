@@ -15,9 +15,10 @@ export default function Home()
 
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6">Flashcard Saas</Typography>
+          <Typography variant="h6" style={{flexGrow: 1}}>Flashcard Saas</Typography>
           <SignedOut>
-            <Button>Sign Up</Button>
+            <Button color="inherit" href="/login">{' '}login</Button>
+            <Button color="inherit" href="/sign-up">{' '}Sign Up</Button>
           </SignedOut>
           <SignedIn>
             <UserButton/>

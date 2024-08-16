@@ -3,10 +3,9 @@ import { Container, Box, Typography, AppBar, Toolbar, Button } from '@mui/materi
 import { SignIn } from '@clerk/nextjs'
 import Link from 'next/link'
 
-export default function SignUpPage() {
+export default function LoginPage() {
 
-  return <Container maxWidth = "100vw">
-    <AppBar position="static" sx={{backgroundColor: '#3f51b5'}}>
+  return <Container maxWidth = "100vw"><AppBar position="static" sx={{backgroundColor: '#3f51b5'}}>
   <Toolbar>
     <Typography variant="h6" sx={{flexGrow: 1}}>
       Flashcard SaaS
@@ -31,8 +30,8 @@ export default function SignUpPage() {
   sx={{textAlign: 'center', my: 4}}
 >
   <Typography variant="h4" component="h1" gutterBottom>
-    login
+    Sign Up
   </Typography>
-  <SignIn />
+  <SignUp />
 </Box></Container>
 }
