@@ -15,14 +15,13 @@ You should return in the following JSON format:
 }
 `
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const genAiModel = genAI.getGenerativeModel({model: "gemini-1.5-flash", systemInstruction: systemPrompt, generationConfig: { responseMimeType: "application/json" }})    
+const genAiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: systemPrompt, generationConfig: { responseMimeType: "application/json" } })
 
-export async function POST(req)
-{
-    const data = await req.json()
-    const chat = genAiModel.startChat()
-    const message = await chat.sendMessage(data)
-    const jsonCards = message.response.text()
-    const flashcards = JSON.parse(jsonCards).flashcards
-    return NextResponse.json(flashcards)
+export async function POST(req) {
+  const data = await req.json()
+  const chat = genAiModel.startChat()
+  const message = await chat.sendMessage(data)
+  const jsonCards = message.response.text()
+  const flashcards = JSON.parse(jsonCards).flashcards
+  return NextResponse.json(flashcards)
 }
