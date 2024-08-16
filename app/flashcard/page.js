@@ -2,19 +2,19 @@
 import { useUser } from "@clerk/nextjs"
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import { Container, Grid, Card, CardActionArea, CardContent, Box, Typography } from "@mui/material"
+import { Container, Grid, Card, CardActionArea, CardContent, Box, Typography, Button, Stack } from "@mui/material"
 
 import { db } from '@/firebase'
 import {
-collection,
-doc,
-getDocs,
-query,
-setDoc,
-deleteDoc,
-getDoc,
-addDoc,
-writeBatch
+  collection,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+  deleteDoc,
+  getDoc,
+  addDoc,
+  writeBatch
 } from 'firebase/firestore'
 
 export default function Flashcard() {
@@ -28,7 +28,7 @@ export default function Flashcard() {
   useEffect(() => {
     async function getFlashcard() {
       if (!search || !user) return
-            
+
       const colRef = collection(doc(collection(db, 'users'), user.id), "flashcardSets")
       const docRef = doc(colRef, search)
       const currentDoc = await getDoc(docRef)
@@ -57,6 +57,10 @@ export default function Flashcard() {
   }
   return (
     <Container maxWidth="md">
+      <Stack direction="row">
+        <Typography variant="h5" component="h2">Current set: {search}</Typography>
+        <Button color="inherit" href="/" style={{ flexGrow: .5 }}>Home</Button>
+      </Stack>
       <Grid container spacing={3} sx={{ mt: 4 }}>
         {flashcards.map((flashcard) => (
           <Grid item xs={12} sm={6} md={4} key={flashcard.id}>

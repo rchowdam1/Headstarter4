@@ -14,7 +14,8 @@ import {
   Grid,
   Card,
   CardContent,
-  CardActionArea
+  CardActionArea,
+  Stack
 } from '@mui/material'
 
 import { useUser } from '@clerk/nextjs'
@@ -22,15 +23,15 @@ import { useRouter } from 'next/navigation'
 
 import { db } from '@/firebase'
 import {
-collection,
-doc,
-getDocs,
-query,
-setDoc,
-deleteDoc,
-getDoc,
-addDoc,
-writeBatch
+  collection,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+  deleteDoc,
+  getDoc,
+  addDoc,
+  writeBatch
 } from 'firebase/firestore'
 
 export default function Flashcards() {
@@ -58,6 +59,10 @@ export default function Flashcards() {
   }, [user])
   return (
     <Container maxWidth="md">
+      <Stack direction="row">
+        <Typography variant="h5" component="h2"> Owned Flashcard Sets</Typography>
+        <Button color="inherit" href="/" style={{ flexGrow: .5 }}>Home</Button>
+      </Stack>
       <Grid container spacing={3} sx={{ mt: 4 }}>
         {flashcards.map((flashcard, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
