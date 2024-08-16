@@ -1,3 +1,22 @@
+'use client'
+import { useUser } from "@clerk/nextjs"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
+import { Container, Grid, Card, CardActionArea, CardContent, Box, Typography } from "@mui/material"
+
+import { db } from '@/firebase'
+import {
+collection,
+doc,
+getDocs,
+query,
+setDoc,
+deleteDoc,
+getDoc,
+addDoc,
+writeBatch
+} from 'firebase/firestore'
+
 export default function Flashcard() {
   const { isLoaded, isSignedIn, user } = useUser()
   const [flashcards, setFlashcards] = useState([])
@@ -9,14 +28,23 @@ export default function Flashcard() {
   useEffect(() => {
     async function getFlashcard() {
       if (!search || !user) return
-
-      const colRef = collection(doc(collection(db, 'users'), user.id), search)
-      const docs = await getDocs(colRef)
-      const flashcards = []
-      docs.forEach((doc) => {
-        flashcards.push({ id: doc.id, ...doc.data() })
-      })
-      setFlashcards(flashcards)
+            
+      const colRef = collection(doc(collection(db, 'users'), user.id), "flashcardSets")
+      const docRef = doc(colRef, search)
+      const currentDoc = await getDoc(docRef)
+      const currentCards = []
+      // if(currentDoc.exists())
+      // {
+      //   console.log(currentDoc)
+      // }
+      // const currentCards = []
+      // currentDoc.forEach((doc) => {
+      //   currentCards.push({ id: doc.id, ...doc.data() })
+      // })
+      currentDoc.data().flashcards.forEach((card, index) => {
+        currentCards.push({ id: index, front: card.front, back: card.back })
+      });
+      setFlashcards(currentCards)
     }
     getFlashcard()
   }, [search, user])
@@ -39,12 +67,12 @@ export default function Flashcard() {
                     <div>
                       <div>
                         <Typography variant="h5" component="div">
-                          {flashcard.front}
+                          Front: {flashcard.front}
                         </Typography>
                       </div>
                       <div>
                         <Typography variant="h5" component="div">
-                          {flashcard.back}
+                          Back: {flashcard.back}
                         </Typography>
                       </div>
                     </div>

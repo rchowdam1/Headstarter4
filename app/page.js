@@ -29,7 +29,8 @@ export default function Home() {
         <Typography variant="h2">Welcome to flashcard SaaS</Typography>
         <Typography variant="h5"> {' '}The easiest way to make flashcards from your text</Typography>
         <SignedIn>
-          <Button variant="contained" color="primary" sx={{ mt: 2 }} href="/generate">Get Started</Button>
+          <Button variant="contained" color="primary" sx={{ mt: 2, mr: 2 }} href="/generate">Start Generating</Button>
+          <Button variant="contained" color="primary" sx={{ mt: 2, ml: 2 }} href="/flashcards">Check Sets</Button>
         </SignedIn>
         <SignedOut>
           <Typography variant="contained" color="primary" sx={{ mt: 2 }}>Create An Account To Get Started!</Typography>

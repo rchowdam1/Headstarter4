@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from 'react'
 import {
   Container,
@@ -12,11 +13,27 @@ import {
   DialogActions,
   Grid,
   Card,
-  CardContent
+  CardContent,
+  CardActionArea
 } from '@mui/material'
 
+import { useUser } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
 
-export default function Flashcard() {
+import { db } from '@/firebase'
+import {
+collection,
+doc,
+getDocs,
+query,
+setDoc,
+deleteDoc,
+getDoc,
+addDoc,
+writeBatch
+} from 'firebase/firestore'
+
+export default function Flashcards() {
   const { isLoaded, isSignedIn, user } = useUser()
   const [flashcards, setFlashcards] = useState([])
   const router = useRouter()
@@ -31,7 +48,7 @@ export default function Flashcard() {
       const docRef = doc(collection(db, 'users'), user.id)
       const docSnap = await getDoc(docRef)
       if (docSnap.exists()) {
-        const collections = docSnap.data().flashcards || []
+        const collections = docSnap.data().flashcardSets || []
         setFlashcards(collections)
       } else {
         await setDoc(docRef, { flashcards: [] })

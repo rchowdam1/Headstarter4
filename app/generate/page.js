@@ -112,6 +112,9 @@ export default function Generate() {
           <Button color="inherit" href="/">
             Home
           </Button>
+          <Button color="inherit" href="/flashcards">
+            See sets
+          </Button>
         </Stack>
 
         <TextField
