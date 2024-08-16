@@ -32,13 +32,41 @@ export default function Home()
       </Box>
 
       <Box sx={{my:6}}>
-        <Typography variant="h4" components="h2">Features</Typography>
-        <Grid contained spacing={4}>
+        <Typography variant="h4">Features</Typography>
+        <Grid container spacing={4}>
+          <Grid item xs = {12} md = {4}>
+            <Typography variant="h6">Easy Text Input</Typography>
+            <Typography>{' '}Simply input your text, our software does the rest! Now it's much easier to make flashcards!</Typography>
+          </Grid>
+          <Grid item xs = {12} md = {4}>
+            <Typography variant="h6">Easy Text Input</Typography>
+            <Typography>{' '}Simply input your text, our software does the rest! Now it's much easier to make flashcards!</Typography>
+          </Grid>
           <Grid item xs = {12} md = {4}>
             <Typography variant="h6">Easy Text Input</Typography>
             <Typography>{' '}Simply input your text, our software does the rest! Now it's much easier to make flashcards!</Typography>
           </Grid>
         </Grid>
+      </Box>
+      <Box sx={{my: 6, textAlign: "center"}}>
+        <Typography variant="h4">Pricing</Typography> 
+        <Grid container spacing={4}>
+          <Grid item xs = {12} md = {4}>
+            <Box sx={{p: 3, border: "1px solid", borderColor: "grey.300", borderRadius: 2}}></Box>
+            <Typography variant="h6">Pricing Header here</Typography>
+            <Typography>Pricing Desc here</Typography>
+          </Grid>
+          <Grid item xs = {12} md = {4}>
+            <Box sx={{p: 3, border: "1px solid", borderColor: "grey.300", borderRadius: 2}}></Box>
+            <Typography variant="h6">Pricing Header here</Typography>
+            <Typography>Pricing Desc here</Typography>
+          </Grid>
+          <Grid item xs = {12} md = {4}>
+            <Box sx={{p: 3, border: "1px solid", borderColor: "grey.300", borderRadius: 2}}></Box>
+            <Typography variant="h6">Pricing Header here</Typography>
+            <Typography>Pricing Desc here</Typography>
+          </Grid>
+        </Grid>          
       </Box>
     </Container>
   )
