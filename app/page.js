@@ -7,11 +7,10 @@ import Head from 'next/head'
 
 export default function Home() {
   const sendToCheckout = async(dollarsToPay) => {
-    const dollarObject = { dollarsToPay: dollarsToPay };
     const checkoutSession = await fetch('/api/checkout_sessions', {
       method: 'POST',
-      headers: {origin: 'http://localhost:3000', 'Content-Type': 'application/json'},
-      body: JSON.stringify(dollarObject)
+      headers: {origin: 'http://localhost:3000'},
+      body: JSON.stringify(dollarsToPay)
     })
     const checkoutSessionJson = await checkoutSession.json()
     const stripe = await Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)

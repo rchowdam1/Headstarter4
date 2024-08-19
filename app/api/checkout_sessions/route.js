@@ -8,9 +8,7 @@ const formatAmountForStripe = (amount) => {
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 export async function POST(req) {
-  response = await req.json()
-  cashAmount = response.dollarObject
-  
+  const cashAmount = await req.json()
   try {
     const params = {
       mode: 'subscription',
