@@ -63,6 +63,7 @@ const ResultPage = () => {
               We have received your payment. You will receive an email with the
               order details shortly.
             </Typography>
+            <Button color="inherit" href="/" style={{ flexGrow: .5 }}>Home</Button>
           </Box>
         </>
       ) : (
@@ -72,6 +73,7 @@ const ResultPage = () => {
             <Typography variant="body1">
               Your payment was not successful. Please try again.
             </Typography>
+            <Button color="inherit" href="/" style={{ flexGrow: .5 }}>Home</Button>
           </Box>
         </>
       )}
