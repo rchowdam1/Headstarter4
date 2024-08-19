@@ -12,7 +12,7 @@ export default function Home() {
       headers: {origin: 'http://localhost:3000'}
     })
     const checkoutSessionJson = await checkoutSession.json()
-    const stripe = await getStripe()
+    const stripe = await Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
     const {error} = await stripe.redirectToCheckout({sessionId: checkoutSessionJson.id})
     if(error)
     {
