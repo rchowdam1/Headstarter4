@@ -63,7 +63,7 @@ export default function Home() {
               <Typography variant="h5">Basic</Typography>
               <Typography variant="h6">Free</Typography>
               <Typography>{' '}Access to basic flashcard features and limited storage</Typography>
-              <Button variant="contained" color="primary">Choose Basic</Button>
+              <Button variant="contained" color="primary" href="/result">Choose Basic</Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -71,15 +71,15 @@ export default function Home() {
               <Typography variant="h5">Pro</Typography>
               <Typography variant="h6">$5 Per Month</Typography>
               <Typography>{' '}Access to advanced flashcard features and greater storage</Typography>
-              <Button variant="contained" color="primary">Choose Pro</Button>
+              <Button variant="contained" color="primary" href="/result">Choose Pro</Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={{ p: 3, border: "1px solid", borderColor: "grey.300", borderRadius: 2 }}>
               <Typography variant="h5">Ultra</Typography>
               <Typography variant="h6">$10 Per Month</Typography>
-              <Typography>{' '}Access to additional flashcard features and unlimited storage</Typography>
-              <Button variant="contained" color="primary">Choose Ultra</Button>
+              <Typography>{' '}Access to additional flashcarnd features and unlimited storage</Typography>
+              <Button variant="contained" color="primary" href="/result">Choose Ultra</Button>
             </Box>
 
           </Grid>
