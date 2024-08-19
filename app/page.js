@@ -5,8 +5,6 @@ import { Typography, Container, AppBar, Toolbar, Button, Box, Grid } from '@mui/
 import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Head from 'next/head'
 
-process.env.CI = true
-
 export default function Home() {
   const sendToCheckout = async(dollarsToPay) => {
     const checkoutSession = await fetch('/api/checkout_sessions', {
