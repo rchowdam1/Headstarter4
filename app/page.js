@@ -14,7 +14,8 @@ export default function Home() {
 
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>Flashcard Saas</Typography>
+          <img src="android-chrome-192x192.png" alt="Description of Image" height={'50'} width={'50'} />
+          <Typography variant="h6" style={{ flexGrow: 1 }} padding={1} >Flashcard Saas</Typography>
           <SignedOut>
             <Button color="inherit" href="/login">{' '}Login</Button>
             <Button color="inherit" href="/sign-up">{' '}Sign Up</Button>
