@@ -1,6 +1,7 @@
 'use client'
-import { Box, Stack, TextField, Button, Typography, Image } from '@mui/material'
+import { Box, Stack, TextField, Button, Typography, Image, Container, CircularProgress } from '@mui/material'
 import { useState, useRef, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const ResultPage = () => {
   const router = useRouter()
@@ -77,3 +78,5 @@ const ResultPage = () => {
     </Container>
   )
 }
+
+export default ResultPage
