@@ -5,6 +5,8 @@ import { Typography, Container, AppBar, Toolbar, Button, Box, Grid } from '@mui/
 import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Head from 'next/head'
 
+process.env.CI = true
+
 export default function Home() {
   const sendToCheckout = async(dollarsToPay) => {
     const checkoutSession = await fetch('/api/checkout_sessions', {
@@ -29,7 +31,7 @@ export default function Home() {
 
       <AppBar position="static">
         <Toolbar>
-          <img src="android-chrome-192x192.png" alt="Description of Image" height={'50'} width={'50'} />
+          <Image src="android-chrome-192x192.png" alt="Description of Image" height={'50'} width={'50'} />
           <Typography variant="h6" style={{ flexGrow: 1 }} padding={1} >Flashcard Saas</Typography>
           <SignedOut>
             <Button color="inherit" href="/login">{' '}Login</Button>

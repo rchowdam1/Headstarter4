@@ -105,7 +105,7 @@ export default function Generate() {
     <Container maxWidth="md">
       <Box sx={{ my: 4 }}>
         <Stack direction={'row'} display={'flex'}>
-          <img src="android-chrome-192x192.png" alt="Description of Image" height={'75'} width={'75'} />
+          <Image src="android-chrome-192x192.png" alt="Description of Image" height={'75'} width={'75'} />
           <Typography variant={'h4'} component="h1" color={'#ff5555'} padding={2} gutterBottom>
             Generate Flashcards
           </Typography>
