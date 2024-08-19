@@ -6,10 +6,12 @@ import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Head from 'next/head'
 
 export default function Home() {
-  const sendToCheckout = async() => {
+  const sendToCheckout = async(dollarsToPay) => {
+    const dollarObject = { dollarsToPay: dollarsToPay };
     const checkoutSession = await fetch('/api/checkout_sessions', {
       method: 'POST',
-      headers: {origin: 'http://localhost:3000'}
+      headers: {origin: 'http://localhost:3000', 'Content-Type': 'application/json'},
+      body: JSON.stringify(dollarObject)
     })
     const checkoutSessionJson = await checkoutSession.json()
     const stripe = await Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
@@ -77,7 +79,7 @@ export default function Home() {
               <Typography variant="h5">Basic</Typography>
               <Typography variant="h6">Free</Typography>
               <Typography>{' '}Access to basic flashcard features and limited storage</Typography>
-              <Button variant="contained" color="primary" onClick={sendToCheckout}>Choose Basic</Button>
+              <Button variant="contained" color="primary" onClick={() => sendToCheckout(0)}>Choose Basic</Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -85,7 +87,7 @@ export default function Home() {
               <Typography variant="h5">Pro</Typography>
               <Typography variant="h6">$5 Per Month</Typography>
               <Typography>{' '}Access to advanced flashcard features and greater storage</Typography>
-              <Button variant="contained" color="primary" onClick={sendToCheckout}>Choose Pro</Button>
+              <Button variant="contained" color="primary" onClick={() => sendToCheckout(5)}>Choose Pro</Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -93,7 +95,7 @@ export default function Home() {
               <Typography variant="h5">Ultra</Typography>
               <Typography variant="h6">$10 Per Month</Typography>
               <Typography>{' '}Access to additional flashcard features and unlimited storage</Typography>
-              <Button variant="contained" color="primary" onClick={sendToCheckout} >Choose Ultra</Button>
+              <Button variant="contained" color="primary" onClick={() => sendToCheckout(10)} >Choose Ultra</Button>
             </Box>
 
           </Grid>
