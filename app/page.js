@@ -4,7 +4,7 @@ import getStripe from '/utils/get-stripe'
 import { Typography, Container, AppBar, Toolbar, Button, Box, Grid } from '@mui/material'
 import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Head from 'next/head'
-
+//W'RE SO BACK
 export default function Home() {
   const sendToCheckout = async(dollarsToPay) => {
     const checkoutSession = await fetch('/api/checkout_sessions', {
