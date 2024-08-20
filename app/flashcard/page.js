@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import { Container, Grid, Card, CardActionArea, CardContent, Box, Typography, Button, Stack } from "@mui/material"
 
-import { db } from '@/firebase'
+import { db } from '/firebase'
 import {
   collection,
   doc,
