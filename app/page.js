@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import getStripe from '@/utils/get-stripe'
+import Stripe from 'stripe'
 import { Typography, Container, AppBar, Toolbar, Button, Box, Grid } from '@mui/material'
 import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Head from 'next/head'

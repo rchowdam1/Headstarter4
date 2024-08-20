@@ -10,17 +10,17 @@ export default function SignUpPage() {
       <Typography variant="h6" sx={{ flexGrow: 1 }}>
         Flashcard SaaS
       </Typography>
-      <Button color="white">
+      <Button color="inherit">
         <Link href="/login" passHref>
           Login
         </Link>
       </Button>
-      <Button color="white">
+      <Button color="inherit">
         <Link href="/sign-up" passHref>
           Sign Up
         </Link>
       </Button>
-      <Button color="white">
+      <Button color="inherit">
         <Link href="/" passHref>
           Home
         </Link>
