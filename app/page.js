@@ -23,14 +23,14 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Head>
-        <title>Flashcard SaaS</title>
+        <title>FlashcardsAI</title>
         <meta name="description" content="Create flashcard from your text" />
       </Head>
 
-      <AppBar position="static">
+      <AppBar position="static" sx={{backgroundColor: "#ff5555"}}>
         <Toolbar>
           <Image src="/android-chrome-192x192.png" alt="Description of Image" height={'50'} width={'50'} />
-          <Typography variant="h6" style={{ flexGrow: 1 }} padding={1} >Flashcard Saas</Typography>
+          <Typography variant="h6" style={{ flexGrow: 1 }} padding={1} color={"black"}>FlashcardsAI</Typography>
           <SignedOut>
             <Button color="inherit" href="/login">{' '}Login</Button>
             <Button color="inherit" href="/sign-up">{' '}Sign Up</Button>
@@ -42,11 +42,11 @@ export default function Home() {
       </AppBar>
 
       <Box sx={{ textAlign: "center", my: 4 }}>
-        <Typography variant="h2">Welcome to flashcard SaaS</Typography>
-        <Typography variant="h5"> {' '}The easiest way to make flashcards from your text</Typography>
+        <Typography variant="h2">Welcome to FlashcardsAI</Typography>
+        <Typography variant="h5"> {' '}The easiest way to make flashcards from your text!</Typography>
         <SignedIn>
-          <Button variant="contained" color="primary" sx={{ mt: 2, mr: 2 }} href="/generate">Start Generating</Button>
-          <Button variant="contained" color="primary" sx={{ mt: 2, ml: 2 }} href="/flashcards">Check Sets</Button>
+          <Button variant="contained" color="success" sx={{ mt: 2, mr: 2 }} href="/generate">Start Generating</Button>
+          <Button variant="contained" color="success" sx={{ mt: 2, ml: 2 }} href="/flashcards">Check Sets</Button>
         </SignedIn>
         <SignedOut>
           <Typography variant="contained" color="primary" sx={{ mt: 2 }}>Create An Account To Get Started!</Typography>
@@ -62,11 +62,11 @@ export default function Home() {
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Easy Text Input</Typography>
-            <Typography>{' '}Simply input your text, our software does the rest! Now it is much easier to make flashcards!</Typography>
+            <Typography>{' '}Simply input your text, our software does the rest! Now it is much easier to make flashcards with more features!</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Easy Text Input</Typography>
-            <Typography>{' '}Simply input your text, our software does the rest! Now it is much easier to make flashcards!</Typography>
+            <Typography>{' '}Simply input your text, our software does the rest! Now it is much easier to make flashcards with more features and storage!</Typography>
           </Grid>
         </Grid>
       </Box>
@@ -78,7 +78,7 @@ export default function Home() {
               <Typography variant="h5">Basic</Typography>
               <Typography variant="h6">Free</Typography>
               <Typography>{' '}Access to basic flashcard features and limited storage</Typography>
-              <Button variant="contained" color="primary" onClick={() => sendToCheckout(0)}>Choose Basic</Button>
+              <Button variant="contained" color="warning" onClick={() => sendToCheckout(0)}>Choose Basic</Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -86,7 +86,7 @@ export default function Home() {
               <Typography variant="h5">Pro</Typography>
               <Typography variant="h6">$5 Per Month</Typography>
               <Typography>{' '}Access to advanced flashcard features and greater storage</Typography>
-              <Button variant="contained" color="primary" onClick={() => sendToCheckout(5)}>Choose Pro</Button>
+              <Button variant="contained" color="error" onClick={() => sendToCheckout(5)}>Choose Pro</Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -94,7 +94,7 @@ export default function Home() {
               <Typography variant="h5">Ultra</Typography>
               <Typography variant="h6">$10 Per Month</Typography>
               <Typography>{' '}Access to additional flashcard features and unlimited storage</Typography>
-              <Button variant="contained" color="primary" onClick={() => sendToCheckout(10)} >Choose Ultra</Button>
+              <Button variant="contained" sx={{backgroundColor: "#000"}} onClick={() => sendToCheckout(10)} >Choose Ultra</Button>
             </Box>
 
           </Grid>
