@@ -21,7 +21,7 @@ import {
 import { useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 
-import { db } from '@/firebase'
+import {db} from '/firebase'
 import {
   collection,
   doc,

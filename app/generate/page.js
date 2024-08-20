@@ -18,7 +18,7 @@ import {
 } from '@mui/material'
 import Image from 'next/image'
 import { NextResponse } from 'next/server'
-import { db } from '@/firebase'
+import {db} from '/firebase'
 import {
 collection,
 doc,

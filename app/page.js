@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import Stripe from 'stripe'
+import getStripe from '/utils/get-stripe'
 import { Typography, Container, AppBar, Toolbar, Button, Box, Grid } from '@mui/material'
 import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Head from 'next/head'
@@ -13,7 +13,7 @@ export default function Home() {
       body: JSON.stringify(dollarsToPay)
     })
     const checkoutSessionJson = await checkoutSession.json()
-    const stripe = await Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
+    const stripe = await getStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
     const {error} = await stripe.redirectToCheckout({sessionId: checkoutSessionJson.id})
     if(error)
     {
