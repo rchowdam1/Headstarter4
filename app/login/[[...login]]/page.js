@@ -11,21 +11,8 @@ export default function LoginPage() {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Flashcard SaaS
         </Typography>
-        <Button color="inherit">
-          <Link href="/login" passHref>
-            Login
-          </Link>
-        </Button>
-        <Button color="inherit">
-          <Link href="/sign-up" passHref>
-            Sign Up
-          </Link>
-        </Button>
-        <Button color="inherit">
-          <Link href="/" passHref>
-            Home
-          </Link>
-        </Button>
+        <Button href="/sign-up">Sign Up</Button>
+        <Button href="/">Home</Button>
       </Toolbar>
     </AppBar>
     <Box
