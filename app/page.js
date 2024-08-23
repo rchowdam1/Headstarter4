@@ -23,14 +23,14 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Head>
-        <title>FlashcardsAI</title>
+        <title>FlashBotAI</title>
         <meta name="description" content="Create flashcard from your text" />
       </Head>
 
-      <AppBar position="static" sx={{backgroundColor: "#ff5555"}}>
+      <AppBar position="static" sx={{backgroundColor: "#55ff55"}}>
         <Toolbar>
           <Image src="/android-chrome-192x192.png" alt="Description of Image" height={'50'} width={'50'} />
-          <Typography variant="h6" style={{ flexGrow: 1 }} padding={1} color={"black"}>FlashcardsAI</Typography>
+          <Typography variant="h6" style={{ flexGrow: 1 }} padding={1} color={"black"}>FlashBotAI</Typography>
           <SignedOut>
             <Button color="inherit" href="/login">{' '}Login</Button>
             <Button color="inherit" href="/sign-up">{' '}Sign Up</Button>
@@ -42,7 +42,7 @@ export default function Home() {
       </AppBar>
 
       <Box sx={{ textAlign: "center", my: 4 }}>
-        <Typography variant="h2">Welcome to FlashcardsAI</Typography>
+        <Typography variant="h2">Welcome to FlashBotAI</Typography>
         <Typography variant="h5"> {' '}The easiest way to make flashcards from your text!</Typography>
         <SignedIn>
           <Button variant="contained" color="success" sx={{ mt: 2, mr: 2 }} href="/generate">Start Generating</Button>
@@ -94,7 +94,7 @@ export default function Home() {
               <Typography variant="h5">Ultra</Typography>
               <Typography variant="h6">$10 Per Month</Typography>
               <Typography>{' '}Access to additional flashcard features and unlimited storage</Typography>
-              <Button variant="contained" sx={{backgroundColor: "#000"}} onClick={() => sendToCheckout(10)} >Choose Ultra</Button>
+              <Button variant="contained" sx={{backgroundColor: "#3AE"}} onClick={() => sendToCheckout(10)} >Choose Ultra</Button>
             </Box>
 
           </Grid>
